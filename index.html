@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/index.css">
     <link rel="shortcut icon" href="./image/logotipo.svg" type="image/x-icon">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <script src="https://kit.fontawesome.com/f156855bd0.js" crossorigin="anonymous"></script>
@@ -18,149 +17,172 @@
     <header>
         <div class="nav">
             <a class="active" href="#">Home</a>
-            <a href="#">Projetos</a>
-            <a href="#">Experiência</a>
-            <a href="#">Formação</a>
-            <a href="#">Habilidades</a>
-            <a href="#">Sobre</a>
+            <a href="#projects">Projects</a>
+            <a href="#experiencias">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#contato">Contact</a>
         </div>
     </header>
-    <main>
-        <section class="perfil-kaleb">
-            <img src="image/perfilp.png" class="perfil">
-            <h1 class="title">Kalebe Silva de Vasconcelos</h1>
-            <p class="title">Desenvolvedor Web e Backend Java e PHP</p>
-        </section>
+    <section class="profile-kaleb">
+        <img src="image/perfilp.png" class="profile">
+        <h1 class="title">Kalebe Silva de Vasconcelos</h1>
+        <p class="title">Web Developer and Backend Java and PHP</p>
+    </section>
 
-        <div class="container">
 
-            <h1 class="heading">Projetos</h1>
+    <div class="container">
 
-            <div class="box-container">
+        <h1 class="heading">Projects</h1>
 
-                <div class="box">
-                    <img src="image/epid.png" alt="">
-                    <h3>E-Pidgey</h3>
-                    <p>Uma Rede Social tematizada com Pokémon</p>
-                    <a href="https://kalebe091.github.io/Projeto-Epidgey/" class="btn">Ver mais</a>
-                </div>
+        <div id="projects" class="box-container">
 
-                <div class="box">
-                    <img src="image/java.png" alt="">
-                    <h3>Calculadora em Java</h3>
-                    <p>Um programa que simula uma calculadora em Java</p>
-                    <a href="https://github.com/Kalebe091/CalculadoraJava" class="btn">Ver mais</a>
-                </div>
+            <div class="box">
+                <img src="image/epid.png" alt="">
+                <h3>E-Pidgey</h3>
+                <p>A Social Network themed with Pokémon</p>
+                <a href="https://kalebe091.github.io/Projeto-Epidgey/" class="btn">See more</a>
+            </div>
 
-                <div class="box">
-                    <img src="image/cinemario.jpeg" alt="">
-                    <h3>Site de agência de cinema</h3>
-                    <p>Um site utilizando PHP, HTML, CSS, Codeigniter, Bootstrap e Grocery Crud.</p>
-                    <a href="https://github.com/Kalebe091/cinemario" class="btn">Ver Mais</a>
-                </div>
+            <div class="box">
+                <img src="image/java.png" alt="">
+                <h3>TecnoK</h3>
+                <p>A prototype of a technology company that works on OOP fundamentals</p>
+                <a href="https://github.com/Kalebe091/TecnoK" class="btn">See more</a>
+            </div>
 
+            <div class="box">
+                <img src="image/cinemario.jpeg" alt="">
+                <h3>Cinema agency website</h3>
+                <p>A site using PHP, HTML, CSS, Codeigniter, Bootstrap and Grocery Crud.</p>
+                <a href="https://github.com/Kalebe091/cinemario" class="btn">See more</a>
+            </div>
+
+            <div class="box">
+                <img src="image/BISU.png" alt="">
+                <h3>Socio-environmental Blog "BISU"</h3>
+                <p>Blog of Information about the Environment.</p>
+                <a href="https://kalebe091.github.io/BISU/" class="btn">See more</a>
+            </div>
+
+            <div class="box">
+                <img src="image/java.png" alt="">
+                <h3>Employee Management</h3>
+                <p>The following project is a prototype of an employee management system and their sectors.</p>
+                <a href="https://github.com/Kalebe091/SistemaFuncionarios" class="btn">See more</a>
+            </div>
+
+            <div class="box">
+                <img src="image/pokemart.png" alt="">
+                <h3>PokeMart Web</h3>
+                <p>A Pokemon website using HTML and CSS.</p>
+                <a href="https://kalebe091.github.io/Landing-Page/" class="btn">See more</a>
             </div>
 
         </div>
 
-        <section id="experiencias">
-            <div class="botoes">
-                <button id="edu">
-                    <h2><i class="fas fa-graduation-cap"></i></h2>
-                </button>
-                <h2><i class="fas fa-grip-lines-vertical"></i></h2>
-                <button id="job">
-                    <h2><i class="fas fa-briefcase"></i></h2>
-                </button>
+    </div>
+
+
+    <section id="experiencias">
+        <div class="botoes">
+            <button id="edu">
+                <h2><i class="fas fa-graduation-cap"></i></h2>
+            </button>
+            <h2><i class="fas fa-grip-lines-vertical"></i></h2>
+            <button id="job">
+                <h2><i class="fas fa-briefcase"></i></h2>
+            </button>
+        </div>
+        <div class="xp">
+            <div id="education" class="educacao">
+                <dl>
+                    <h3>Software Engineering</h3>
+                    <p>State University of Pará - UEPA</p>
+                    <p>3rd Semester</p>
+                    <p>2023 - Ongoing</p>
+                </dl>
+                <dl>
+                    <h3>Technical in Informatics</h3>
+                    <p>IFPA - Federal Institute of Pará</p>
+                    <p>2020 - 2022</p>
+                    <p>Computer Networks, Programming Logic, Programming Language, Database,
+                        Markup and Style Language, IoT - Internet of Things, Computer Maintenance,
+                        Work Safety, Entrepreneurship.</p>
+                </dl>
             </div>
-            <div class="xp">
-                <div class="educacao">
-                    <dl>
-                        <h3>Engenharia de Software</h3>
-                        <p>Universidade do Estado do Pará - UEPA</p>
-                        <p>3º Semestre</p>
-                        <p>2023 - Em andamento</p>
-                    </dl>
-                    <dl>
-                        <h3>Técnico em Informática</h3>
-                        <p>IFPA - Instituto Federal do Pará</p>
-                        <p>2020 - 2022</p>
-                        <p>Redes de Computadores, Lógica de Programação, Linguagem de Programação, Banco de Dados,
-                            Linguagem de Marcação e Estilo, Iot - Internet das Coisas, Manutenção de Computadores,
-                            Segurança do Trabalho, Empreendedorismo.</p>
-                    </dl>
-                </div>
-                <div class="trabalhos">
-                    <dl>
-                        <h3>Projeto de Extensão: Computador Amigo</h3>
-                        <p>IFPA - Instituto Federal do Pará - Campus Paragominas</p>
-                        <p>04/2021 - 06/2022</p>
-                        <p>Realizei Manutenção de Computadores e monitorei novos estagiários no projeto.</p>
-                    </dl>
-                    <dl>
-                        <h3>Técnico em Informática</h3>
-                        <p>UEPA - Universidade do Estado do Pará - Campus Paragominas</p>
-                        <p>Estagiário</p>
-                        <p>09/2023 - Em andamento</p>
-                        <p>Realizo manutenção de computadores, monitoro os laboratórios de informática e presto
-                            assistência técnica a alunos e professores.</p>
-                    </dl>
-                </div>
+            <div class="trabalhos">
+                <dl>
+                    <h3>Extension Project: Friendly Computer</h3>
+                    <p>IFPA - Federal Institute of Pará - Paragominas Campus</p>
+                    <p>04/2021 - 06/2022</p>
+                    <p>I performed Computer Maintenance and monitored new interns in the project.</p>
+                </dl>
+                <dl>
+                    <h3>Technical in Informatics</h3>
+                    <p>UEPA - State University of Pará - Paragominas Campus</p>
+                    <p>Intern</p>
+                    <p>09/2023 - 12/2023</p>
+                    <p>I perform computer maintenance, monitor the computer labs and provide
+                        technical assistance to students and teachers.</p>
+                </dl>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="habilidades">
-            <h3>Minhas Habilidades</h3>
-            <div class="skillbar-wrapper">
-                <div class="skillbar clearfix html5" data-percent="100%">
-                    <h4 class="skillbar-title"><span>HTML5</span></h4>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent">100%</div>
-                </div>
 
-                <div class="skillbar clearfix css" data-percent="100%">
-                    <h4 class="skillbar-title"><span>CSS</span></h4>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent">100%</div>
-                </div>
-
-                <div class="skillbar clearfix php" data-percent="100%">
-                    <h4 class="skillbar-title"><span>PHP</span></h4>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent">100%</div>
-                </div>
-
-                <div class="skillbar clearfix wordpress" data-percent="100%">
-                    <h4 class="skillbar-title"><span>Python</span></h4>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent">100%</div>
-                </div>
-
-                <div class="skillbar clearfix server" data-percent="100%">
-                    <h4 class="skillbar-title"><span>Java</span></h4>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent">100%</div>
-                </div>
+    <section id="skills" class="habilidades">
+        <h3>Skills</h3>
+        <div class="skillbar-wrapper">
+            <div class="skillbar clearfix html5" data-percent="100%">
+                <h4 class="skillbar-title"><span>HTML5</span></h4>
+                <div class="skillbar-bar"></div>
+                <div class="skill-bar-percent">100%</div>
             </div>
-        </section>
 
-        <footer>
-            <div id="contato">
-                <div class="sociais">
-                    <h3>Redes sociais</h3>
-                    <ul>
-                        <li><i class="fab fa-github"></i><a href="https://github.com/Kalebe091" target="_blank">Meu
-                                perfil do GitHub</a></li>
-                        <li><i class="fab fa-linkedin"></i><a
-                                href="https://www.linkedin.com/in/kalebe-vasconcelos-82ba0622a/" target="_blank">Meu
-                                perfil do LinkedIn</a></li>
-                    </ul>
-                </div>
+            <div class="skillbar clearfix css" data-percent="100%">
+                <h4 class="skillbar-title"><span>CSS</span></h4>
+                <div class="skillbar-bar"></div>
+                <div class="skill-bar-percent">100%</div>
             </div>
-            <p>&copy; - <span id="copyright-year"></span> <strong>Kalebe Silva de Vasconcelos</strong> | Todos os
-                direitos
-                reservados </p>
-        </footer>
+
+            <div class="skillbar clearfix php" data-percent="100%">
+                <h4 class="skillbar-title"><span>PHP</span></h4>
+                <div class="skillbar-bar"></div>
+                <div class="skill-bar-percent">100%</div>
+            </div>
+
+            <div class="skillbar clearfix wordpress" data-percent="100%">
+                <h4 class="skillbar-title"><span>Python</span></h4>
+                <div class="skillbar-bar"></div>
+                <div class="skill-bar-percent">100%</div>
+            </div>
+
+            <div class="skillbar clearfix server" data-percent="100%">
+                <h4 class="skillbar-title"><span>Java</span></h4>
+                <div class="skillbar-bar"></div>
+                <div class="skill-bar-percent">100%</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="contato">
+            <div class="socials">
+                <h3>Social networks</h3>
+                <ul>
+                    <li><i class="fab fa-github"></i><a href="https://github.com/Kalebe091" target="_blank">My GitHub
+                            profile</a></li>
+                    <li><i class="fab fa-linkedin"></i><a
+                            href="https://www.linkedin.com/in/kalebe-vasconcelos-82ba0622a/" target="_blank">My LinkedIn
+                            profile</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>© - <span id="copyright-year"></span> <strong>Kalebe Silva de Vasconcelos</strong> | All rights
+            reserved </p>
+    </footer>
+
 </body>
 
 </html>
