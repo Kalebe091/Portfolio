@@ -5,7 +5,7 @@ $(function () {
     const xpTrabalhos = $('div.trabalhos');
 
     // Função para criar scroll dinâmico para as sessões Sobre mim, Experiências e Contato.
-    $('nav a').click(function (e) {
+    $('.nav a').click(function (e) {
         e.preventDefault()
         const id = $(this).attr('href'), targetOffset = $(id).offset().top
         $('html, body').animate({
@@ -15,14 +15,16 @@ $(function () {
     // Função para quando pressionar o botão do menu, ele faça algo.
     $(".menu-button").click(function () {
         const menuMobile = $('nav.mobile')
+        const faBars = window.document.querySelector(".fa-bars");
+        const faTimes = window.document.querySelector(".fa-times");
         if (menuMobile.is(':hidden') == false) {
             menuMobile.slideToggle();
-            window.document.querySelector(".fa-bars").style.display = 'block';
-            window.document.querySelector(".fa-times").style.display = 'none';
+            if (faBars) faBars.style.display = 'block';
+            if (faTimes) faTimes.style.display = 'none';
         } else {
             menuMobile.slideToggle();
-            window.document.querySelector(".fa-bars").style.display = 'none';
-            window.document.querySelector(".fa-times").style.display = 'block';
+            if (faBars) faBars.style.display = 'none';
+            if (faTimes) faTimes.style.display = 'block';
         }
     })
     // Funções para quando pressionar algum dos botões de Trabalhos ou Educação, ele mostre o conteúdo.
@@ -68,7 +70,8 @@ function scrollFunction() {
 
 window.onload = function () {
     // Comando para deixar o ícone X do menu de navegação 'escondido' por padrão no mobile.
-    window.document.querySelector(".fa-times").style.display = 'none';
+    const faTimesInit = window.document.querySelector(".fa-times");
+    if (faTimesInit) faTimesInit.style.display = 'none';
 
     // Os comandos abaixo servem para atualizar a minha idade automaticamente e para atualizar o ano de direito autoral do site.
     let date = new Date;
@@ -79,10 +82,13 @@ window.onload = function () {
     let yearOld = year - bdYear;
     let diffMonth = 7 - month;
 
-    if (diffMonth <= 0) {
-        window.document.querySelector('#yearold').innerHTML = yearOld;
-    } else {
-        window.document.querySelector('#yearold').innerHTML = yearOld - 1;
+    const yearOldEl = window.document.querySelector('#yearold');
+    if (yearOldEl) {
+        if (diffMonth <= 0) {
+            yearOldEl.innerHTML = yearOld;
+        } else {
+            yearOldEl.innerHTML = yearOld - 1;
+        }
     }
     window.document.getElementById('copyright-year').innerHTML = year;
 }
