@@ -46,13 +46,15 @@ main{
     color: white;
   }
 
-.perfil-kaleb{
+.perfil-kaleb,
+.profile-kaleb{
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
     background-color: #333;
 }
-.perfil{
+.perfil,
+.profile{
     width: 25em;
 }
 
