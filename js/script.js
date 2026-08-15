@@ -1,157 +1,130 @@
 'use strict';
-//Funções JQuery
-$(function () {
-    const cursos = $('div.educacao');
-    const xpTrabalhos = $('div.trabalhos');
 
-    // Função para criar scroll dinâmico para as sessões Sobre mim, Experiências e Contato.
-    $('.nav a').click(function (e) {
-        e.preventDefault()
-        const id = $(this).attr('href'), targetOffset = $(id).offset().top
-        $('html, body').animate({
-            scrollTop: targetOffset
-        }, 500)
-    })
-    // Função para quando pressionar o botão do menu, ele faça algo.
-    $(".menu-button").click(function () {
-        const menuMobile = $('nav.mobile')
-        if (menuMobile.is(':hidden') == false) {
-            menuMobile.slideToggle();
-          const barIcon = window.document.querySelector(".fa-bars");
-          const timesIcon = window.document.querySelector(".fa-times");
-          if (barIcon) barIcon.style.display = 'block';
-          if (timesIcon) timesIcon.style.display = 'none';
-        } else {
-            menuMobile.slideToggle();
-          const barIcon = window.document.querySelector(".fa-bars");
-          const timesIcon = window.document.querySelector(".fa-times");
-          if (barIcon) barIcon.style.display = 'none';
-          if (timesIcon) timesIcon.style.display = 'block';
-        }
-    })
-    // Funções para quando pressionar algum dos botões de Trabalhos ou Educação, ele mostre o conteúdo.
-    $("#job").click(function () {
-        if (xpTrabalhos.is(':hidden') == true) {
-            cursos.fadeOut();
-            xpTrabalhos.fadeIn(1500);
-            window.document.querySelector("#edu").style.backgroundColor = "#FFFFFF";
-            window.document.querySelector("#job").style.backgroundColor = "#F2F2F2";
-        }
-    })
-    $("#edu").click(function () {
-        if (cursos.is(':hidden') == true) {
-            xpTrabalhos.fadeOut();
-            cursos.fadeIn(1500);
-            window.document.querySelector("#job").style.backgroundColor = "#FFFFFF";
-            window.document.querySelector("#edu").style.backgroundColor = "#F2F2F2";
-        }
-    })
-    // Função do botão para retornar ao topo do site.
-    $("#return-button").click(function () {
-        const topo = $('header'), targetOffset = $(topo).offset().top
-        $('html, body').animate({
-            scrollTop: targetOffset
-        }, 500)
-    })
-})
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. Mobile Menu Toggle ---
+    const menuBtn = document.querySelector('.menu-button');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const iconBars = document.querySelector('.fa-bars');
+    const iconTimes = document.querySelector('.fa-times');
 
-// Funções para capturar o valor do scroll na página atual.
-window.onscroll = function () {
-    scrollFunction();
-}
-
-function scrollFunction() {
-    const returnButton = $("button#return-button");
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        returnButton.fadeIn(250);
-    } else {
-        returnButton.fadeOut(250);
-    }
-}
-
-
-window.onload = function () {
-    // Comando para deixar o ícone X do menu de navegação 'escondido' por padrão no mobile.
-  const timesIcon = window.document.querySelector(".fa-times");
-  if (timesIcon) {
-    timesIcon.style.display = 'none';
-  }
-
-    // Os comandos abaixo servem para atualizar a minha idade automaticamente e para atualizar o ano de direito autoral do site.
-    let date = new Date;
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let bdYear = 2004;
-
-    let yearOld = year - bdYear;
-    let diffMonth = 7 - month;
-
-    const yearOldElement = window.document.querySelector('#yearold');
-    if (yearOldElement) {
-      if (diffMonth <= 0) {
-        yearOldElement.innerHTML = yearOld;
-      } else {
-        yearOldElement.innerHTML = yearOld - 1;
-      }
-    }
-    const copyrightYear = window.document.getElementById('copyright-year');
-    if (copyrightYear) {
-      copyrightYear.innerHTML = year;
-    }
-}
-
-    // Progress bars
-    (function() {
-  
-        var SkillsBar = function( bars ) {
-          this.bars = document.querySelectorAll( bars );
-          if( this.bars.length > 0 ) {
-            this.init();
-          } 
-        };
-        
-        SkillsBar.prototype = {
-          init: function() {
-            var self = this;
-            self.index = -1;
-            self.timer = setTimeout(function() {
-              self.action();
-            }, 500);
-            
-            
-          },
-          select: function( n ) {
-            var self = this,
-              bar = self.bars[n];
-              
-              if( bar ) {
-                var width = bar.parentNode.dataset.percent;
-              
-                bar.style.width = width;
-                bar.parentNode.classList.add( "complete" ); 
-              }
-          },
-          action: function() {
-            var self = this;
-            self.index++;
-            if( self.index == self.bars.length ) {
-              clearTimeout( self.timer );
+    if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+            const isHidden = window.getComputedStyle(mobileNav).display === 'none';
+            if (isHidden) {
+                mobileNav.style.display = 'flex';
+                iconBars.style.display = 'none';
+                iconTimes.style.display = 'block';
             } else {
-              self.select( self.index );  
+                mobileNav.style.display = 'none';
+                iconBars.style.display = 'block';
+                iconTimes.style.display = 'none';
             }
-            
-            setTimeout(function() {
-              self.action();
-            },500);
-          }
-        };
-        
-        window.SkillsBar = SkillsBar;
-        
-      })();
-      
-      (function() {
-        document.addEventListener( "DOMContentLoaded", function() {
-          var skills = new SkillsBar( ".skillbar-bar" );
         });
-      })();
+    }
+
+    // --- 2. Smooth Scrolling & Active Link highlighting ---
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId.startsWith('#')) {
+                e.preventDefault();
+                
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+
+                if(mobileNav.style.display === 'flex') {
+                    mobileNav.style.display = 'none';
+                    iconBars.style.display = 'block';
+                    iconTimes.style.display = 'none';
+                }
+
+                if(targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const headerOffset = document.getElementById('main-header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // --- 3. Return to Top Button ---
+    const returnBtn = document.getElementById('return-button');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            returnBtn.style.display = 'block';
+        } else {
+            returnBtn.style.display = 'none';
+        }
+    });
+
+    returnBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // --- 4. Tabs Toggle (Edu, Job, Cert) ---
+    const tabBtns = [
+        { btn: document.getElementById('edu-btn'), content: document.getElementById('education-tab') },
+        { btn: document.getElementById('job-btn'), content: document.getElementById('trabalhos-tab') },
+        { btn: document.getElementById('cert-btn'), content: document.getElementById('cert-tab') }
+    ];
+
+    tabBtns.forEach(item => {
+        if(item.btn && item.content) {
+            item.btn.addEventListener('click', () => {
+                // Remove active classes and hide contents
+                tabBtns.forEach(t => {
+                    t.btn.classList.remove('active-tab');
+                    t.content.style.display = 'none';
+                });
+                
+                // Add active class and show content
+                item.btn.classList.add('active-tab');
+                item.content.style.display = 'block';
+            });
+        }
+    });
+
+
+    // --- 5. Dynamic Footer Year ---
+    const copyrightYear = document.getElementById('copyright-year');
+    if (copyrightYear) {
+        copyrightYear.textContent = new Date().getFullYear();
+    }
+
+    // --- 6. Scroll Reveal Animations (Intersection Observer) ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const fadeElements = document.querySelectorAll('.item-fade, .section-fade');
+    
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    fadeElements.forEach(el => {
+        fadeObserver.observe(el);
+    });
+});
