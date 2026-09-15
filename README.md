@@ -23,7 +23,7 @@ Este portfólio é um site estático e responsivo construído com **HTML5, CSS3 
 
 ## 🌐 Acesso ao Projeto
 
-*(Adicione o link do seu portfólio publicado aqui, caso esteja hospedado no GitHub Pages, Vercel, etc.)*
+*(https://rotom.me/Portfolio/)*
 
 ## 📫 Contato
 
